@@ -1,0 +1,9 @@
+## Interface: 16001
+## Title: TrainerCompare
+## Notes: Trainer recipes (Tailoring, Leatherworking, Blacksmithing...) that make gear show your equipped item(s) beside the tooltip, like any other item.
+## Version: 1.0.0
+## Author: MeioNeiz
+## X-Website: https://github.com/MeioNeiz/TrainerCompare
+## X-License: MIT
+
+TrainerCompare.lua

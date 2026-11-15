@@ -1,0 +1,8 @@
+package-as: TrainerCompare
+
+move-folders:
+  TrainerCompare/addons/TrainerCompare: TrainerCompare
+
+ignore:
+  - docs
+  - README.md

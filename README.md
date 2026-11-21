@@ -1,43 +1,30 @@
 # TrainerCompare
 
-At a profession trainer in **WoW Forever**, recipes that make gear show what you're wearing
-in that slot beside the tooltip, the way any other item does.
+Your equipped gear beside profession trainer recipes.
 
-| Azure Silk Gloves | Long Silken Cloak |
-|---|---|
-| ![Trainer tooltip for Azure Silk Gloves with the equipped gloves beside it](docs/gloves.png) | ![Trainer tooltip for Long Silken Cloak with the equipped cloak beside it](docs/cloak.png) |
+![A Tailoring trainer with the mouse on Azure Silk Gloves: before, only the recipe tooltip; with
+TrainerCompare, the equipped Sage's Gloves beside it](docs/before-after.png)
 
 ## What it does
 
-A trainer's recipe tooltip isn't an item tooltip, so the game never puts the "Currently
-Equipped" comparison next to it. TrainerCompare finds the item the recipe makes and, when it's
-something you can wear, shows your equipped item in the usual comparison tooltips:
+At a profession trainer, hover a recipe that makes gear and see what you wear in that slot,
+the way any other item shows it.
 
-- Both rings, both trinkets, or both hands for a one-handed weapon, when you have two on.
-- Beside the recipe tooltip on the right, or on the left when there's no room.
-- It stays up when the game redraws the tooltip (pressing Shift, item data arriving).
+- Both rings, trinkets or weapon hands when you wear two
+- Flips to the left at the screen edge
+- Stays up when you press Shift
+- Pawn and other comparison addons add their lines as usual
 
-Works for every profession that makes gear: Tailoring, Leatherworking, Blacksmithing,
-Engineering. Recipes that make something you can't wear are left alone.
-
-There are no settings or commands: install it and hover a recipe at a trainer.
+Tailoring, Leatherworking, Blacksmithing and Engineering. No settings.
 
 ## Install
 
-Download this repository (green **Code** button, **Download ZIP**), and copy the
-`addons\TrainerCompare` folder into `World of Warcraft\_forever_\Interface\AddOns`, so that you
-end up with `AddOns\TrainerCompare\TrainerCompare.toc`. Restart WoW fully (a `/reload` doesn't
-find new addons).
+Use your addon manager, or unzip into `World of Warcraft\_forever_\Interface\AddOns` and
+restart WoW fully.
 
-No other addons needed. Item comparison addons such as
-[Pawn](https://www.curseforge.com/wow/addons/pawn) add their lines to the comparison tooltips
-as usual.
+## Feedback
 
-## Limits
-
-- It shows your equipped item next to the recipe; it doesn't compute stat differences.
-- It needs the game to know the recipe's item. For the odd recipe it doesn't, there's no
-  comparison.
+Bugs and ideas: [GitHub issues](https://github.com/MeioNeiz/TrainerCompare/issues).
 
 ## Licence
 

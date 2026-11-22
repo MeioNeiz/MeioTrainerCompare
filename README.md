@@ -1,4 +1,4 @@
-# TrainerCompare
+# Meio TrainerCompare
 
 Your equipped gear beside profession trainer recipes.
 
@@ -19,12 +19,16 @@ Tailoring, Leatherworking, Blacksmithing and Engineering. No settings.
 
 ## Install
 
-Use your addon manager, or unzip into `World of Warcraft\_forever_\Interface\AddOns` and
-restart WoW fully.
+Use your addon manager (CurseForge, Wago), or unzip a GitHub release into
+`World of Warcraft\_forever_\Interface\AddOns` and restart WoW fully.
 
 ## Feedback
 
-Bugs and ideas: [GitHub issues](https://github.com/MeioNeiz/TrainerCompare/issues).
+Bugs and ideas: [GitHub issues](https://github.com/MeioNeiz/TrainerCompare/issues)
+
+## More Meio addons
+
+[Meio LeaveButton](https://www.curseforge.com/wow/addons/leavebutton) | [Meio MeterHover](https://www.curseforge.com/wow/addons/meterhover) | [Meio AutoRank](https://www.curseforge.com/wow/addons/meio-autorank)
 
 ## Licence
 

@@ -1,0 +1,29 @@
+{
+  "title": "Meio TrainerCompare",
+  "summary": "Shows your equipped gear beside profession trainer recipes, like any other item.",
+  "cfCategory": "Tooltip",
+  "cfExtra": [
+    "Professions"
+  ],
+  "wagoCategories": [
+    "Professions",
+    "Tooltip"
+  ],
+  "gallery": [
+    {
+      "file": "before-after.png",
+      "title": "Before and after",
+      "description": "A Tailoring trainer: the recipe tooltip alone, then with your equipped gloves beside it"
+    },
+    {
+      "file": "cloak.png",
+      "title": "Cloak recipe",
+      "description": "Long Silken Cloak beside the cape you wear"
+    },
+    {
+      "file": "gloves.png",
+      "title": "Gloves recipe",
+      "description": "Azure Silk Gloves beside your equipped gloves"
+    }
+  ]
+}

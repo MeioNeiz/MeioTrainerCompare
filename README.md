@@ -28,7 +28,7 @@ Bugs and ideas: [GitHub issues](https://github.com/MeioNeiz/TrainerCompare/issue
 
 ## More Meio addons
 
-[Meio LeaveButton](https://www.curseforge.com/wow/addons/leavebutton) | [Meio MeterHover](https://www.curseforge.com/wow/addons/meterhover) | [Meio AutoRank](https://www.curseforge.com/wow/addons/meio-autorank)
+[Meio Next Stop](https://www.curseforge.com/wow/addons/leavebutton) | [Meio MeterHover](https://www.curseforge.com/wow/addons/meterhover) | [Meio AutoRank](https://www.curseforge.com/wow/addons/meio-autorank)
 
 ## Licence
 

@@ -24,7 +24,8 @@ Tailoring, Leatherworking, Blacksmithing and Engineering. No settings.
 ## Coming soon
 
 - The trainer remembers your "Already Known" filter between visits
-- An upgrade verdict on recipes that make gear
+- An upgrade verdict on recipes that make gear, from Forever Leveling BiS: "Leveling BiS:
+  +4.2 (+18%) upgrade"
 
 ## Install
 

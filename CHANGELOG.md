@@ -1,4 +1,9 @@
-# TrainerCompare
+# MeioTrainerCompare
+
+## 1.0.2
+
+- Renamed from TrainerCompare. Remove or disable the old TrainerCompare addon (it says so in
+  chat if it is still on)
 
 ## 1.0.1
 

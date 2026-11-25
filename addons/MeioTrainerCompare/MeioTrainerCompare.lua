@@ -1,4 +1,4 @@
--- TrainerCompare: a trainer's recipe tooltip is a "trainer service", not an item, so the game
+-- MeioTrainerCompare: a trainer's recipe tooltip is a "trainer service", not an item, so the game
 -- never puts the equipped-item comparison beside it. When the recipe makes gear, this shows
 -- what you wear in that slot (both rings, trinkets or weapon hands) in the comparison
 -- tooltips, as for any item.
@@ -22,8 +22,8 @@ local function Tips()
     local function Make(name)
         return CreateFrame("GameTooltip", name, UIParent, "GameTooltipTemplate")
     end
-    tips = { _G.ShoppingTooltip1 or Make("TrainerCompareTip1"),
-        _G.ShoppingTooltip2 or Make("TrainerCompareTip2") }
+    tips = { _G.ShoppingTooltip1 or Make("MeioTrainerCompareTip1"),
+        _G.ShoppingTooltip2 or Make("MeioTrainerCompareTip2") }
     return tips
 end
 
@@ -40,6 +40,7 @@ local function ServiceItem(index)
     if C_TooltipInfo and C_TooltipInfo.GetTrainerService then
         local okData, data = pcall(C_TooltipInfo.GetTrainerService, index)
         if okData and type(data) == "table" then
+            ---@cast data table
             local h = data.hyperlink
             if type(h) == "string" and h:find("item:") then return h end
             local output = C_TradeSkillUI and C_TradeSkillUI.GetRecipeOutputItemData
@@ -121,3 +122,13 @@ if GameTooltip and GameTooltip.SetTrainerService then
     GameTooltip:HookScript("OnHide", HideOurs)
     GameTooltip:HookScript("OnTooltipCleared", HideOurs)
 end
+
+-- The old folder (TrainerCompare, before the Meio rename) may still be installed: both would run.
+-- The player is told to disable it.
+local oldFolder = CreateFrame("Frame")
+oldFolder:RegisterEvent("PLAYER_LOGIN")
+oldFolder:SetScript("OnEvent", function()
+    if not C_AddOns.IsAddOnLoaded("TrainerCompare") then return end
+    print("|cffb090ffMeioTrainerCompare:|r the old TrainerCompare addon is still enabled:"
+        .. " disable it in the AddOns list (MeioTrainerCompare replaces it)")
+end)

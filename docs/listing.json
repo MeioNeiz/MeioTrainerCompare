@@ -1,5 +1,6 @@
 {
-  "title": "Meio TrainerCompare",
+  "title": "Meio Trainer Compare",
+  "wagoSlug": "trainercompare",
   "summary": "Shows your equipped gear beside profession trainer recipes, like any other item.",
   "cfCategory": "Tooltip",
   "cfExtra": [

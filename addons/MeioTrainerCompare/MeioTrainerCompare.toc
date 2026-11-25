@@ -1,13 +1,13 @@
 ## Interface: 16001
-## Title: TrainerCompare
+## Title: MeioTrainerCompare
 ## Notes: Trainer recipes (Tailoring, Leatherworking, Blacksmithing...) that make gear show your equipped item(s) beside the tooltip, like any other item.
 ## Category: Meio
 ## IconTexture: Interface\Icons\Trade_Tailoring
-## Version: 1.0.1
+## Version: 1.0.2
 ## Author: MeioNeiz
-## X-Website: https://github.com/MeioNeiz/TrainerCompare
+## X-Website: https://github.com/MeioNeiz/MeioTrainerCompare
 ## X-License: MIT
 ## X-Curse-Project-ID: 1822293
 ## X-Wago-ID: kGr9aeKy
 
-TrainerCompare.lua
+MeioTrainerCompare.lua

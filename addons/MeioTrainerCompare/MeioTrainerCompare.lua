@@ -56,6 +56,37 @@ local function ServiceItem(index)
     end
 end
 
+-- Forever Leveling BiS (public API v2): what the item made gains your main spec over what you
+-- wear, the number its own item tooltips show. Meionomics puts the same on trainer lines.
+local STEP = 0.05 -- FLBiS's smallest gain worth showing
+local GOOD, BAD, MUTED = "|cff80ff80", "|cffff8080", "|cff999999"
+
+local function VerdictText(link)
+    local api = ForeverLevelingBiS_API
+    if not (api and (api.version or 1) >= 2) then return end
+    if C_AddOns.IsAddOnLoaded("Meionomics") then return end
+    local score, loading = api.ScoreItem(link)
+    if loading or not score then return end
+    local gain, wait = api.GetGain(link)
+    if wait then return end
+    if not gain then return MUTED .. "not for your spec|r" end
+    if math.abs(gain) < STEP then return MUTED .. "same as you wear|r" end
+    local text = ("%+.1f"):format(gain)
+    local base = score - gain
+    local pct = base > 0 and gain / base * 100
+    if pct and math.abs(pct) >= 1 and math.abs(pct) < 1000 then
+        text = text .. (" (%+d%%)"):format(pct < 0 and math.ceil(pct - 0.5) or math.floor(pct + 0.5))
+    end
+    return gain > 0 and (GOOD .. text .. " upgrade|r") or (BAD .. text .. " downgrade|r")
+end
+
+local function Verdict(tooltip, link)
+    local ok, text = pcall(VerdictText, link)
+    if not (ok and text) then return end
+    tooltip:AddLine(MUTED .. "Leveling BiS:|r " .. text)
+    tooltip:Show()
+end
+
 local function Compare(tooltip, index)
     HideOurs()
     if tooltip ~= GameTooltip or (issecretvalue and issecretvalue(index)) then return end
@@ -65,6 +96,7 @@ local function Compare(tooltip, index)
     local equipLoc = select(4, C_Item.GetItemInfoInstant(link))
     local slots = equipLoc and SLOTS[equipLoc]
     if not slots then return end
+    Verdict(tooltip, link)
 
     -- right of the recipe tooltip, or left when there's no room
     local t = Tips()
@@ -121,6 +153,40 @@ if GameTooltip and GameTooltip.SetTrainerService then
     end
     GameTooltip:HookScript("OnHide", HideOurs)
     GameTooltip:HookScript("OnTooltipCleared", HideOurs)
+end
+
+-- Trainer filters (Available / Unavailable / Already Known) reset every visit: keep the
+-- player's last choices per character and put them back when a trainer opens. Only on
+-- TRAINER_SHOW, so changes during the visit stand.
+
+-- Only choices made in the trainer's filter menu count: guide addons (RXPGuides) switch every
+-- filter on from code to find a recipe, which isn't the player's preference
+local function PlayerChoosing()
+    local dropdown = ClassTrainerFrame and ClassTrainerFrame.FilterDropdown
+    return dropdown and dropdown.IsMenuOpen and dropdown:IsMenuOpen()
+end
+
+if SetTrainerServiceTypeFilter and GetTrainerServiceTypeFilter then
+    hooksecurefunc("SetTrainerServiceTypeFilter", function(filter)
+        if type(filter) ~= "string" or not PlayerChoosing() then return end
+        MeioTrainerCompareCharDB = MeioTrainerCompareCharDB or {}
+        local db = MeioTrainerCompareCharDB
+        db.filters = db.filters or {}
+        -- read back rather than trust the argument: callers pass 1/nil as well as booleans
+        db.filters[filter] = not not GetTrainerServiceTypeFilter(filter)
+    end)
+
+    local restore = CreateFrame("Frame")
+    restore:RegisterEvent("TRAINER_SHOW")
+    restore:SetScript("OnEvent", function()
+        local saved = MeioTrainerCompareCharDB and MeioTrainerCompareCharDB.filters
+        if type(saved) ~= "table" then return end
+        for filter, on in pairs(saved) do
+            if on ~= not not GetTrainerServiceTypeFilter(filter) then
+                SetTrainerServiceTypeFilter(filter, on)
+            end
+        end
+    end)
 end
 
 -- The old folder (TrainerCompare, before the Meio rename) may still be installed: both would run.

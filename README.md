@@ -18,14 +18,11 @@ the way any other item shows it.
 - Flips to the left at the screen edge
 - Stays up when you press Shift
 - Pawn and other comparison addons add their lines as usual
+- With Forever Leveling BiS, the recipe says if the item is an upgrade for you:
+  "Leveling BiS: +4.2 (+18%) upgrade"
+- Trainers remember your filter (Available, Unavailable, Already Known) between visits
 
 Tailoring, Leatherworking, Blacksmithing and Engineering. No settings.
-
-## Coming soon
-
-- The trainer remembers your "Already Known" filter between visits
-- An upgrade verdict on recipes that make gear, from Forever Leveling BiS: "Leveling BiS:
-  +4.2 (+18%) upgrade"
 
 ## Install
 

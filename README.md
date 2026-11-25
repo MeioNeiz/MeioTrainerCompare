@@ -7,8 +7,6 @@ For WoW Forever.
 ![A Tailoring trainer with the mouse on Azure Silk Gloves: before, only the recipe tooltip; with
 Meio Trainer Compare, the equipped Sage's Gloves beside it](docs/before-after.png)
 
-Renamed from TrainerCompare.
-
 ## What it does
 
 At a profession trainer, hover a recipe that makes gear and see what you wear in that slot,

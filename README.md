@@ -21,6 +21,11 @@ the way any other item shows it.
 
 Tailoring, Leatherworking, Blacksmithing and Engineering. No settings.
 
+## Coming soon
+
+- The trainer remembers your "Already Known" filter between visits
+- An upgrade verdict on recipes that make gear
+
 ## Install
 
 Use your addon manager (CurseForge, Wago), or unzip a GitHub release into

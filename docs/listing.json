@@ -1,7 +1,7 @@
 {
   "title": "Meio Trainer Compare",
   "wagoSlug": "trainercompare",
-  "summary": "Shows your equipped gear beside profession trainer recipes, like any other item.",
+  "summary": "Shows your equipped gear beside trainer recipes: see if the craft is an upgrade first.",
   "cfCategory": "Tooltip",
   "cfExtra": [
     "Professions"

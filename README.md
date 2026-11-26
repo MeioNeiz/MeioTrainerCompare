@@ -1,6 +1,7 @@
 # Meio Trainer Compare
 
-Your equipped gear beside profession trainer recipes.
+Before you buy a recipe and the mats: the trainer shows your equipped item beside it, like
+any other upgrade.
 
 For WoW Forever.
 

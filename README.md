@@ -21,7 +21,26 @@ the way any other item shows it.
   "Leveling BiS: +4.2 (+18%) upgrade"
 - Trainers remember your filter (Available, Unavailable, Already Known) between visits
 
-Tailoring, Leatherworking, Blacksmithing and Engineering. No settings.
+Tailoring, Leatherworking, Blacksmithing and Engineering.
+
+### Every spell your trainer teaches
+
+Click All spells on the class trainer or the spell book, or type `/mtc`: every spell your
+class trainer teaches, what you can train now and what comes at each level, with costs
+remembered from your trainer visits. Replaces What's Training.
+
+![The warlock trainer with the All spells list beside it: train now, spells from class
+quests, then levels 34, 36 and 38 with each spell's cost](docs/all-spells.png)
+
+- Demon tomes: which your demons already know, also marked Known at the demon trainer
+- Profession recipes you haven't learned and where to get them
+
+Settings: Esc > Options > AddOns > MeioTrainerCompare, or `/mtc settings`.
+
+- `/mtc`: open the list; `/mtc tomes`: demon tomes; `/mtc recipes`: profession recipes
+- `/mtc button on|off`: All spells button on the trainer and spell book
+- `/mtc marks on|off`: mark known demon tomes at the demon trainer
+- `/mtc reset`: put the window back
 
 ## Install
 

@@ -1,5 +1,13 @@
 # MeioTrainerCompare
 
+## 2.0.0
+
+- Every spell your class trainer teaches, now and later, with costs: `/mtc` or the All spells
+  button on the trainer and spell book. Replaces What's Training
+- Warlock demon tomes, with the ones your demons already know marked Known (`/mtc tomes`)
+- Profession recipes you haven't learned and where to get them (`/mtc recipes`)
+- Settings in Esc > Options > AddOns > MeioTrainerCompare
+
 ## 1.1.0
 
 - Recipes that make gear say if the item is an upgrade for you: "Leveling BiS: +4.2 (+18%)

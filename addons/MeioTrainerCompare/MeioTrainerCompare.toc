@@ -1,14 +1,23 @@
 ## Interface: 16001
 ## Title: MeioTrainerCompare
-## Notes: Trainer recipes (Tailoring, Leatherworking, Blacksmithing...) that make gear show your equipped item(s) beside the tooltip, like any other item.
+## Notes: Every spell your class trainer teaches, now and later, with costs; demon tomes; profession recipes and where they come from; equipped gear beside trainer recipes. /mtc
 ## Category: Meio
 ## IconTexture: Interface\Icons\Trade_Tailoring
-## Version: 1.1.0
+## Version: 2.0.0
 ## Author: MeioNeiz
 ## X-Website: https://github.com/MeioNeiz/MeioTrainerCompare
 ## X-License: MIT
 ## X-Curse-Project-ID: 1822293
 ## X-Wago-ID: kGr9aeKy
+## AddonCompartmentFunc: MeioTrainerCompare_OnAddonCompartmentClick
+## SavedVariables: MeioTrainerCompareDB
 ## SavedVariablesPerCharacter: MeioTrainerCompareCharDB
 
 MeioTrainerCompare.lua
+SpellData.lua
+SpellList.lua
+Recipes.lua
+Planner.lua
+Tomes.lua
+Professions.lua
+Settings.lua

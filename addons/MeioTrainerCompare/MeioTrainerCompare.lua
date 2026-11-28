@@ -56,34 +56,52 @@ local function ServiceItem(index)
     end
 end
 
--- Forever Leveling BiS (public API v2): what the item made gains your main spec over what you
--- wear, the number its own item tooltips show. Meionomics puts the same on trainer lines.
-local STEP = 0.05 -- FLBiS's smallest gain worth showing
+-- What the item made gains you over what you wear: MeioSim's DPS where it answers for your
+-- class, else Forever Leveling BiS's (public API v2) main spec score, the numbers their item
+-- tooltips show. Meionomics puts its own on trainer lines.
+local STEP = 0.05 -- smallest gain worth showing
 local GOOD, BAD, MUTED = "|cff80ff80", "|cffff8080", "|cff999999"
 
+local function Pct(pct)
+    if not pct or math.abs(pct) < 1 or math.abs(pct) >= 1000 then return "" end
+    return (" (%+d%%)"):format(pct < 0 and math.ceil(pct - 0.5) or math.floor(pct + 0.5))
+end
+
+-- label, text; nil when MeioSim doesn't answer for this character
+local function SimVerdict(link)
+    local sim = MeioSim and MeioSim.API
+    if not (sim and sim.Covers and sim.Covers()) then return end
+    local v = sim.ItemValue(link)
+    local label = "Sim DPS:"
+    if not v then return label, MUTED .. "not for you|r" end
+    if v.equipped or math.abs(v.delta) < STEP then return label, MUTED .. "same as you wear|r" end
+    local text = ("%+.1f DPS%s"):format(v.delta, Pct(v.pct))
+    if v.delta > 0 then return label, GOOD .. text .. " Upgrade|r" end
+    return label, BAD .. text .. " Downgrade|r"
+end
+
 local function VerdictText(link)
+    if C_AddOns.IsAddOnLoaded("Meionomics") then return end
+    local label, text = SimVerdict(link)
+    if label then return label, text end
     local api = ForeverLevelingBiS_API
     if not (api and (api.version or 1) >= 2) then return end
-    if C_AddOns.IsAddOnLoaded("Meionomics") then return end
     local score, loading = api.ScoreItem(link)
     if loading or not score then return end
     local gain, wait = api.GetGain(link)
     if wait then return end
-    if not gain then return MUTED .. "not for your spec|r" end
-    if math.abs(gain) < STEP then return MUTED .. "same as you wear|r" end
-    local text = ("%+.1f"):format(gain)
+    label = "Leveling BiS:"
+    if not gain then return label, MUTED .. "not for your spec|r" end
+    if math.abs(gain) < STEP then return label, MUTED .. "same as you wear|r" end
     local base = score - gain
-    local pct = base > 0 and gain / base * 100
-    if pct and math.abs(pct) >= 1 and math.abs(pct) < 1000 then
-        text = text .. (" (%+d%%)"):format(pct < 0 and math.ceil(pct - 0.5) or math.floor(pct + 0.5))
-    end
-    return gain > 0 and (GOOD .. text .. " upgrade|r") or (BAD .. text .. " downgrade|r")
+    text = ("%+.1f"):format(gain) .. Pct(base > 0 and gain / base * 100)
+    return label, gain > 0 and (GOOD .. text .. " upgrade|r") or (BAD .. text .. " downgrade|r")
 end
 
 local function Verdict(tooltip, link)
-    local ok, text = pcall(VerdictText, link)
+    local ok, label, text = pcall(VerdictText, link)
     if not (ok and text) then return end
-    tooltip:AddLine(MUTED .. "Leveling BiS:|r " .. text)
+    tooltip:AddLine(MUTED .. label .. "|r " .. text)
     tooltip:Show()
 end
 

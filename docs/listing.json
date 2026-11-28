@@ -17,6 +17,11 @@
       "description": "A Tailoring trainer: the recipe tooltip alone, then with your equipped gloves beside it"
     },
     {
+      "file": "all-spells.png",
+      "title": "All spells",
+      "description": "Every spell your class trainer teaches, by level, with costs"
+    },
+    {
       "file": "cloak.png",
       "title": "Cloak recipe",
       "description": "Long Silken Cloak beside the cape you wear"
